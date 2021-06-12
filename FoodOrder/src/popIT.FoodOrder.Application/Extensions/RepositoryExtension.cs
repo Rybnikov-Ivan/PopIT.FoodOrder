@@ -11,11 +11,11 @@ namespace popIT.FoodOrder.Application.Extensions
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IBeverageRepository, BeverageRepository>();
             services.AddScoped<IGarnishRepository, GarnishRepository>();
             services.AddScoped<IMeatRepository, MeatRepository>();
             services.AddScoped<ISoupRepository, SoupRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             return services;
         }

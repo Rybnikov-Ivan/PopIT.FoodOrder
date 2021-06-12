@@ -7,7 +7,9 @@ using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using popIT.FoodOrder.Application.Extensions;
 using popIT.FoodOrder.Core.Beverages.Mappings;
+using popIT.FoodOrder.Core.General;
 using popIT.FoodOrder.Infrastructure.Data;
+using popIT.FoodOrder.Infrastructure.Data.UnitOfWork;
 
 namespace popIT.FoodOrder.Application
 {
@@ -32,6 +34,8 @@ namespace popIT.FoodOrder.Application
             services.AddAutoMapper(typeof(BeverageProfile));
 
             services.AddRepositories();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddServices();
 

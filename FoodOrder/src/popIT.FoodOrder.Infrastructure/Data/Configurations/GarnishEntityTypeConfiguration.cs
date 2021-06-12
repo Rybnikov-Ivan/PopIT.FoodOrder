@@ -13,6 +13,9 @@ namespace popIT.FoodOrder.Infrastructure.Data.Configurations
 		{
 			builder.ToTable("Garnishes");
 			builder.HasKey(g => g.Id);
+
+			builder.Property(g => g.Name)
+				.IsRequired();
 		}
 	}
 }

@@ -10,6 +10,9 @@ namespace popIT.FoodOrder.Infrastructure.Data.Configurations
 		{
 			builder.ToTable("Meats");
 			builder.HasKey(m => m.Id);
+
+			builder.Property(m => m.Name)
+				.IsRequired();
 		}
 	}
 }
