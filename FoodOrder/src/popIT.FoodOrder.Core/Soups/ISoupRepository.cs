@@ -1,31 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace popIT.FoodOrder.Core.Soups
 {
-    public interface ISoupRepository
+	public interface ISoupRepository
     {
-        Task<IEnumerable<Soup>> GetAllSoups(
-            Expression<Func<Soup, bool>> predicate = null,
-            Func<IQueryable<Soup>, IOrderedQueryable<Soup>> orderBy = null,
-            Func<IQueryable<Soup>, IIncludableQueryable<Soup, object>> include = null,
-            bool disableTracking = true
-        );
+        Task<IEnumerable<Soup>> GetAllSoups();
 
-        Task<Soup> GetSoupById(
-            Guid id,
-            Func<IQueryable<Soup>, IIncludableQueryable<Soup, object>> include = null,
-            bool disableTracking = true
-        );
+        Task<Soup> GetSoupById(int id);
 
-        Task AddSoup(Soup meat);
+        Task AddSoup(Soup soup);
 
-        Task UpdateSoup(Soup meat);
+        Task UpdateSoup(Soup soup);
 
-        Task DeleteSoup(Soup meat);
+        Task DeleteSoup(Soup soup);
     }
 }

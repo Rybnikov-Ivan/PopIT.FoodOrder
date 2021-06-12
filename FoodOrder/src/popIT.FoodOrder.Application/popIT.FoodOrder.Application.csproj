@@ -22,5 +22,9 @@
     <ProjectReference Include="..\popIT.FoodOrder.Infrastructure\popIT.FoodOrder.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 
 </Project>
