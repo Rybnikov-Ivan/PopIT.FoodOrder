@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using popIT.FoodOrder.Core.Exceptions;
 using popIT.FoodOrder.Core.Garnishes.Requests;
 using popIT.FoodOrder.Core.Garnishes.Responses;
 using popIT.FoodOrder.Core.General;
@@ -29,6 +30,11 @@ namespace popIT.FoodOrder.Core.Garnishes
 		public async Task<GarnishResponse> GetGarnishById(int id)
 		{
 			var garnish = await _unitOfWork.GetRepository<IGarnishRepository>().GetGarnishById(id);
+			
+			if (garnish == null)
+			{
+				throw new EntityIdNotFoundException(nameof(Garnish), id);
+			}
 
 			return _mapper.Map<GarnishResponse>(garnish);
 		}
@@ -45,6 +51,11 @@ namespace popIT.FoodOrder.Core.Garnishes
 		public async Task UpdateGarnish(int id, GarnishUpdateRequest garnishUpdateRequest)
 		{
 			var garnish = await _unitOfWork.GetRepository<IGarnishRepository>().GetGarnishById(id);
+			
+			if (garnish == null)
+			{
+				throw new EntityIdNotFoundException(nameof(Garnish), id);
+			}
 
 			_mapper.Map(garnishUpdateRequest, garnish);
 
@@ -54,6 +65,11 @@ namespace popIT.FoodOrder.Core.Garnishes
 		public async Task DeleteGarnish(int id)
 		{
 			var garnish = await _unitOfWork.GetRepository<IGarnishRepository>().GetGarnishById(id);
+			
+			if (garnish == null)
+			{
+				throw new EntityIdNotFoundException(nameof(Garnish), id);
+			}
 			
 			await _unitOfWork.GetRepository<IGarnishRepository>().DeleteGarnish(garnish);
 		}
