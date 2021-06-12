@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using popIT.FoodOrder.Core.Beverages;
+using popIT.FoodOrder.Core.Beverages.Requests;
 
 namespace popIT.FoodOrder.Application.Validations
 {
-	public class BeverageAddRequestValidator : AbstractValidator<Beverage>
+	public class BeverageAddRequestValidator : AbstractValidator<BeverageAddRequest>
 	{
 		public BeverageAddRequestValidator()
 		{

@@ -1,13 +1,9 @@
 ﻿using FluentValidation;
-using popIT.FoodOrder.Core.Meats;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using popIT.FoodOrder.Core.Meats.Requests;
 
 namespace popIT.FoodOrder.Application.Validations
 {
-	public class MeatAddRequestValidator : AbstractValidator<Meat>
+	public class MeatAddRequestValidator : AbstractValidator<MeatAddRequest>
 	{
 		public MeatAddRequestValidator()
 		{

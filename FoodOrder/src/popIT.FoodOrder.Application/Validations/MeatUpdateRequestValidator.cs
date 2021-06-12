@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using popIT.FoodOrder.Core.Meats;
+using popIT.FoodOrder.Core.Meats.Requests;
 
 namespace popIT.FoodOrder.Application.Validations
 {
-	public class MeatUpdateRequestValidator : AbstractValidator<Meat>
+	public class MeatUpdateRequestValidator : AbstractValidator<MeatUpdateRequest>
 	{
 		public MeatUpdateRequestValidator()
 		{

@@ -1,13 +1,9 @@
 ﻿using FluentValidation;
-using popIT.FoodOrder.Core.Soups;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using popIT.FoodOrder.Core.Soups.Requests;
 
 namespace popIT.FoodOrder.Application.Validations
 {
-	public class SoupUpdateRequestValidator : AbstractValidator<Soup>
+	public class SoupUpdateRequestValidator : AbstractValidator<SoupUpdateRequest>
 	{
 		public SoupUpdateRequestValidator()
 		{

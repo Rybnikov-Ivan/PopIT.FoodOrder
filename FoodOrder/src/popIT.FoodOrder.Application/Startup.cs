@@ -33,11 +33,11 @@ namespace popIT.FoodOrder.Application
                     })
                     .ConfigureApiBehaviorOptions(opt =>
                     {
-                        opt.SuppressModelStateInvalidFilter = false;
+                        opt.SuppressModelStateInvalidFilter = true;
                     })
                     .AddFluentValidation(fv =>
                     {
-                        fv.RegisterValidatorsFromAssemblyContaining<BeverageAddRequestValidator>();
+                        fv.RegisterValidatorsFromAssemblyContaining<SoupAddRequestValidator>();
                     })
                     .AddNewtonsoftJson(opt =>
                     {

@@ -1,13 +1,9 @@
 ﻿using FluentValidation;
-using popIT.FoodOrder.Core.Garnishes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using popIT.FoodOrder.Core.Garnishes.Requests;
 
 namespace popIT.FoodOrder.Application.Validations
 {
-	public class GarnishUpdateRequestValidator : AbstractValidator<Garnish>
+	public class GarnishUpdateRequestValidator : AbstractValidator<GarnishUpdateRequest>
 	{
 		public GarnishUpdateRequestValidator()
 		{
