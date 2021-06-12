@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Meats\Mappings" />
+    <Folder Include="Meats\Requests" />
+    <Folder Include="Meats\Response" />
+    <Folder Include="Soups\Mappings" />
+    <Folder Include="Soups\Requests" />
+    <Folder Include="Soups\Response" />
+  </ItemGroup>
+
 </Project>
