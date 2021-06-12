@@ -15,7 +15,7 @@ using popIT.FoodOrder.Infrastructure.Data.UnitOfWork;
 
 namespace popIT.FoodOrder.Application
 {
-	public class Startup
+    public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -27,6 +27,7 @@ namespace popIT.FoodOrder.Application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
 			services.AddControllers(opt =>
                     {
                         opt.Filters.Add(typeof(ValidationActionFilter));
@@ -44,6 +45,7 @@ namespace popIT.FoodOrder.Application
                         opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                     });
 
+
             services.AddAutoMapper(typeof(BeverageProfile));
 
             services.AddRepositories();
@@ -52,9 +54,9 @@ namespace popIT.FoodOrder.Application
 
             services.AddServices();
 
-            services.AddDbContext<FoodOrderDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("MSSQLConnection"),
-                                                    sqlOpt => sqlOpt.MigrationsAssembly(typeof(FoodOrderDbContext).Assembly.FullName)));
-
+            services.AddDbContext<FoodOrderDbContext>(opt => opt.UseSqlServer(
+                Configuration.GetConnectionString("MSSQLConnection"),
+                sqlOpt => sqlOpt.MigrationsAssembly(typeof(FoodOrderDbContext).Assembly.FullName)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,12 +67,11 @@ namespace popIT.FoodOrder.Application
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseLoggingMiddleware();
+
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using popIT.FoodOrder.Core.Beverages.Requests;
 using popIT.FoodOrder.Core.Beverages.Responses;
+using popIT.FoodOrder.Core.Exceptions;
 using popIT.FoodOrder.Core.General;
 
 namespace popIT.FoodOrder.Core.Beverages
@@ -28,6 +29,11 @@ namespace popIT.FoodOrder.Core.Beverages
 		public async Task<BeverageResponse> GetBeverageById(int id)
 		{
 			var beverage = await _unitOfWork.GetRepository<IBeverageRepository>().GetBeverageById(id);
+			
+			if (beverage == null)
+			{
+				throw new EntityIdNotFoundException(nameof(Beverage), id);
+			}
 
 			return _mapper.Map<BeverageResponse>(beverage);
 		}
@@ -44,6 +50,11 @@ namespace popIT.FoodOrder.Core.Beverages
 		public async Task UpdateBeverage(int id, BeverageUpdateRequest beverageUpdateRequest)
 		{
 			var beverage = await _unitOfWork.GetRepository<IBeverageRepository>().GetBeverageById(id);
+			
+			if (beverage == null)
+			{
+				throw new EntityIdNotFoundException(nameof(Beverage), id);
+			}
 
 			_mapper.Map(beverageUpdateRequest, beverage);
 
@@ -53,6 +64,11 @@ namespace popIT.FoodOrder.Core.Beverages
 		public async Task DeleteBeverage(int id)
 		{
 			var beverage = await _unitOfWork.GetRepository<IBeverageRepository>().GetBeverageById(id);
+			
+			if (beverage == null)
+			{
+				throw new EntityIdNotFoundException(nameof(Beverage), id);
+			}
 
 			await _unitOfWork.GetRepository<IBeverageRepository>().DeleteBeverage(beverage);
 		}

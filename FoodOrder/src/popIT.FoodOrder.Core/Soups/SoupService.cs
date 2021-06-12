@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using popIT.FoodOrder.Core.Exceptions;
 using popIT.FoodOrder.Core.General;
 using popIT.FoodOrder.Core.Soups.Requests;
 using popIT.FoodOrder.Core.Soups.Response;
@@ -28,6 +29,11 @@ namespace popIT.FoodOrder.Core.Soups
         public async Task<SoupResponse> GetSoupById(int id)
         {
             var soup = await _unitOfWork.GetRepository<ISoupRepository>().GetSoupById(id);
+            
+            if (soup == null)
+            {
+                throw new EntityIdNotFoundException(nameof(Soup), id);
+            }
 
             return _mapper.Map<SoupResponse>(soup);
         }
@@ -44,6 +50,11 @@ namespace popIT.FoodOrder.Core.Soups
         public async Task UpdateSoup(int id, SoupUpdateRequest soupUpdateRequest)
         {
             var soup = await _unitOfWork.GetRepository<ISoupRepository>().GetSoupById(id);
+            
+            if (soup == null)
+            {
+                throw new EntityIdNotFoundException(nameof(Soup), id);
+            }
 
             _mapper.Map(soupUpdateRequest, soup);
 
@@ -53,6 +64,11 @@ namespace popIT.FoodOrder.Core.Soups
         public async Task DeleteSoup(int id)
         {
             var soup = await _unitOfWork.GetRepository<ISoupRepository>().GetSoupById(id);
+            
+            if (soup == null)
+            {
+                throw new EntityIdNotFoundException(nameof(Soup), id);
+            }
 			
             await _unitOfWork.GetRepository<ISoupRepository>().DeleteSoup(soup);
         }
