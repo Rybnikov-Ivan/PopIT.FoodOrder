@@ -59,7 +59,7 @@ namespace popIT.FoodOrder.Infrastructure.Data
 					);
 			}
 
-			context.SaveChangesAsync();
+			context.SaveChanges();
 		}
 	}
 }

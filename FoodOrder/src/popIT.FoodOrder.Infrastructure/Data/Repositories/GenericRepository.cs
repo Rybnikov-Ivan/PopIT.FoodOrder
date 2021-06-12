@@ -15,9 +15,9 @@ namespace popIT.FoodOrder.Infrastructure.Data.Repositories
 	{
 		private readonly DbSet<TEntity> _dbSet;
 
-		public GenericRepository(DbSet<TEntity> dbSet)
+		public GenericRepository(FoodOrderDbContext context)
 		{
-			_dbSet = dbSet;
+			_dbSet = context.Set<TEntity>();
 		}
 
 		public async Task Add(TEntity entity)
