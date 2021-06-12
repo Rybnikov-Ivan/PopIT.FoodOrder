@@ -13,4 +13,13 @@
     <Folder Include="Garnishes\Responses\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Meats\Mappings" />
+    <Folder Include="Meats\Requests" />
+    <Folder Include="Meats\Response" />
+    <Folder Include="Soups\Mappings" />
+    <Folder Include="Soups\Requests" />
+    <Folder Include="Soups\Response" />
+  </ItemGroup>
+
 </Project>
