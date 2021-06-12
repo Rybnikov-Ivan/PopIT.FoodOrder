@@ -1,0 +1,561 @@
+{
+	"info": {
+		"_postman_id": "f6ef12b6-bf9c-4724-b7b7-a289d68039da",
+		"name": "FoodOrder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MeatController",
+			"item": [
+				{
+					"name": "GetAllMeats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:43121/api/meat",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"meat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMeatById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/meat/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"meat",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddMeat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Люля кебаб\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/meat",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"meat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateMeat",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"рак\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/meat/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"meat",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMeat",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:43121/api/meat/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"meat",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SoupController",
+			"item": [
+				{
+					"name": "GetAllSoups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:43121/api/soup",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"soup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSoupById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/soup/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"soup",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddSoup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"с лаврушкой\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/meat",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"meat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateSoup",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Лагуна\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/soup/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"soup",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteSoup",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:43121/api/soup/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"soup",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BeverageController",
+			"item": [
+				{
+					"name": "GetAllBeverages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:43121/api/beverage",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"beverage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBeverageById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/beverage/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"beverage",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddBeverage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Энергетик\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/beverage",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"beverage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateBeverage",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Апельсиновый сок\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/beverage/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"beverage",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBeverage",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:43121/api/beverage/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"beverage",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GarnishController",
+			"item": [
+				{
+					"name": "GetAllGarnishes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:43121/api/garnish",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"garnish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetGarnishById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/garnish/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"garnish",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddGarnish",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Картошка\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/garnish",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"garnish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateGarnish",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ананасы\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:43121/api/garnish/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"garnish",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGarnish",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:43121/api/garnish/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "43121",
+							"path": [
+								"api",
+								"garnish",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
