@@ -43,6 +43,7 @@ namespace popIT.FoodOrder.Core.Soups
             var soup = _mapper.Map<Soup>(soupAddRequest);
 
             await _unitOfWork.GetRepository<ISoupRepository>().AddSoup(soup);
+            await _unitOfWork.SaveChangesAsync();
 			
             return _mapper.Map<SoupResponse>(soup);
         }
@@ -59,6 +60,7 @@ namespace popIT.FoodOrder.Core.Soups
             _mapper.Map(soupUpdateRequest, soup);
 
             await _unitOfWork.GetRepository<ISoupRepository>().UpdateSoup(soup);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task DeleteSoup(int id)
@@ -71,6 +73,7 @@ namespace popIT.FoodOrder.Core.Soups
             }
 			
             await _unitOfWork.GetRepository<ISoupRepository>().DeleteSoup(soup);
+            await _unitOfWork.SaveChangesAsync();
         }
     }
 }

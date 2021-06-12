@@ -44,6 +44,7 @@ namespace popIT.FoodOrder.Core.Garnishes
 			var garnish = _mapper.Map<Garnish>(garnishAddRequest);
 
 			await _unitOfWork.GetRepository<IGarnishRepository>().AddGarnish(garnish);
+			await _unitOfWork.SaveChangesAsync();
 			
 			return _mapper.Map<GarnishResponse>(garnish);
 		}
@@ -60,6 +61,7 @@ namespace popIT.FoodOrder.Core.Garnishes
 			_mapper.Map(garnishUpdateRequest, garnish);
 
 			await _unitOfWork.GetRepository<IGarnishRepository>().UpdateGarnish(garnish);
+			await _unitOfWork.SaveChangesAsync();
 		}
 
 		public async Task DeleteGarnish(int id)
@@ -72,6 +74,7 @@ namespace popIT.FoodOrder.Core.Garnishes
 			}
 			
 			await _unitOfWork.GetRepository<IGarnishRepository>().DeleteGarnish(garnish);
+			await _unitOfWork.SaveChangesAsync();
 		}
 	}
 }

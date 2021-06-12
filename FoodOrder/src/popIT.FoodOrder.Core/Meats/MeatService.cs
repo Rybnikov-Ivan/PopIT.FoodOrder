@@ -43,6 +43,7 @@ namespace popIT.FoodOrder.Core.Meats
             var meat = _mapper.Map<Meat>(meatAddRequest);
 
             await _unitOfWork.GetRepository<IMeatRepository>().AddMeat(meat);
+            await _unitOfWork.SaveChangesAsync();
 			
             return _mapper.Map<MeatResponse>(meat);
         }
@@ -59,6 +60,7 @@ namespace popIT.FoodOrder.Core.Meats
             _mapper.Map(meatUpdateRequest, meat);
 
             await _unitOfWork.GetRepository<IMeatRepository>().UpdateMeat(meat);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task DeleteMeat(int id)
@@ -71,6 +73,7 @@ namespace popIT.FoodOrder.Core.Meats
             }
 			
             await _unitOfWork.GetRepository<IMeatRepository>().DeleteMeat(meat);
+            await _unitOfWork.SaveChangesAsync();
         }
     }
 }
