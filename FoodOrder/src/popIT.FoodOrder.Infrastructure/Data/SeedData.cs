@@ -6,6 +6,7 @@ using popIT.FoodOrder.Core.Meats;
 using popIT.FoodOrder.Core.Soups;
 using System;
 using System.Linq;
+using popIT.FoodOrder.Core.Students;
 
 namespace popIT.FoodOrder.Infrastructure.Data
 {
@@ -57,6 +58,32 @@ namespace popIT.FoodOrder.Infrastructure.Data
 					new Garnish { Name = "Рис" },
 					new Garnish { Name = "Пюре" }
 					);
+			}
+			
+			if(!context.Students.Any())
+			{
+				context.Students.AddRange(
+					new Student()
+					{
+						Name = "Кирилл",
+						StudentTicket = "2020-65156"
+					},
+					new Student
+					{
+						Name = "Александр",
+						StudentTicket = "2020-23166"
+					},
+					new Student
+					{
+						Name = "Алексей",
+						StudentTicket = "2020-98452"
+					},
+					new Student
+					{
+						Name = "Иван",
+						StudentTicket = "2020-12225"
+					}
+				);
 			}
 
 			context.SaveChanges();
