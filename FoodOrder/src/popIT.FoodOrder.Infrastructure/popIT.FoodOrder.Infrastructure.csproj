@@ -17,4 +17,9 @@
     <ProjectReference Include="..\popIT.FoodOrder.Core\popIT.FoodOrder.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Repositories\" />
+    <Folder Include="Data\UnitOfWork\" />
+  </ItemGroup>
+
 </Project>
