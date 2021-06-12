@@ -1,36 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using popIT.FoodOrder.Core.Garnishes.Requests;
 using popIT.FoodOrder.Core.Garnishes.Responses;
+using popIT.FoodOrder.Core.General;
 
 namespace popIT.FoodOrder.Core.Garnishes
 {
 	public class GarnishService : IGarnishService
 	{
+		private readonly IMapper _mapper;
+		private readonly IUnitOfWork _unitOfWork;
+
+		public GarnishService(IMapper mapper, IUnitOfWork unitOfWork)
+		{
+			_mapper = mapper;
+			_unitOfWork = unitOfWork;
+		}
+		
 		public async Task<IEnumerable<GarnishResponse>> GetAllGarnishes()
 		{
-			throw new NotImplementedException();
+			var garnishes = await _unitOfWork.GetRepository<IGarnishRepository>().GetAllGarnish();
+
+			return _mapper.Map<IEnumerable<GarnishResponse>>(garnishes);
 		}
 
 		public async Task<GarnishResponse> GetGarnishById(int id)
 		{
-			throw new NotImplementedException();
+			var garnish = await _unitOfWork.GetRepository<IGarnishRepository>().GetGarnishById(id);
+
+			return _mapper.Map<GarnishResponse>(garnish);
 		}
 
 		public async Task<GarnishResponse> AddGarnish(GarnishAddRequest garnishAddRequest)
 		{
-			throw new NotImplementedException();
+			var garnish = _mapper.Map<Garnish>(garnishAddRequest);
+
+			await _unitOfWork.GetRepository<IGarnishRepository>().AddGarnish(garnish);
+			
+			return _mapper.Map<GarnishResponse>(garnish);
 		}
 
 		public async Task UpdateGarnish(int id, GarnishUpdateRequest garnishUpdateRequest)
 		{
-			throw new NotImplementedException();
+			var garnish = await _unitOfWork.GetRepository<IGarnishRepository>().GetGarnishById(id);
+
+			_mapper.Map(garnishUpdateRequest, garnish);
+
+			await _unitOfWork.GetRepository<IGarnishRepository>().UpdateGarnish(garnish);
 		}
 
 		public async Task DeleteGarnish(int id)
 		{
-			throw new NotImplementedException();
+			var garnish = await _unitOfWork.GetRepository<IGarnishRepository>().GetGarnishById(id);
+			
+			await _unitOfWork.GetRepository<IGarnishRepository>().DeleteGarnish(garnish);
 		}
 	}
 }
