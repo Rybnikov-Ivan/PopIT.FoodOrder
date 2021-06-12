@@ -1,0 +1,9 @@
+.login-form {
+  text-align: center;
+}
+
+::ng-deep .form-text {
+  text-align: center;
+}
+
+

@@ -1,0 +1,17 @@
+<dx-data-grid
+    id="grid"
+    [dataSource]="dataSource"
+    [repaintChangesOnly]="true"
+    [showBorders]="true">
+
+    <dxo-scrolling mode="virtual"></dxo-scrolling>
+    <dxo-editing
+        mode="cell"
+        [allowAdding]="true"
+        [allowUpdating]="true"
+        [allowDeleting]="true">
+    </dxo-editing>
+
+    <dxi-column dataField="Id" width="130"></dxi-column>
+    <dxi-column dataField="Name"></dxi-column>
+</dx-data-grid>
