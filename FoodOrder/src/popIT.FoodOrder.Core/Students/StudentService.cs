@@ -17,13 +17,12 @@ namespace popIT.FoodOrder.Core.Students
             _unitOfWork = unitOfWork;
         }
         
-        public async Task<StudentResponse> GetStudentById(int id)
+        public async Task<StudentResponse> GetStudentByTicket(string studentTicket)
         {
-            var student = await _unitOfWork.GetRepository<IStudentRepository>().GetStudentById(id);
-
+            var student = await _unitOfWork.GetRepository<IStudentRepository>().GetStudentByTicket(studentTicket);
             if (student == null)
             {
-                throw new EntityIdNotFoundException(nameof(Student), id);
+                throw new StudentAuthorizationException(studentTicket);
             }
 
             return _mapper.Map<StudentResponse>(student);

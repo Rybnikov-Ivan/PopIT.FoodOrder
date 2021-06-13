@@ -10,5 +10,6 @@ namespace popIT.FoodOrder.Core.Orders.Requests
 		public int GarnishId { get; set; }
 		public int MeatId { get; set; }
 		public int SoupId { get; set; }
+		public string StudentTicket { get; set; }
 	}
 }

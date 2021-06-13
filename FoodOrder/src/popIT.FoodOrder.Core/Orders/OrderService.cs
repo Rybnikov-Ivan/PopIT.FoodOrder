@@ -1,8 +1,13 @@
 ﻿using AutoMapper;
+using popIT.FoodOrder.Core.Beverages;
 using popIT.FoodOrder.Core.Exceptions;
+using popIT.FoodOrder.Core.Garnishes;
 using popIT.FoodOrder.Core.General;
+using popIT.FoodOrder.Core.Meats;
 using popIT.FoodOrder.Core.Orders.Requests;
 using popIT.FoodOrder.Core.Orders.Responses;
+using popIT.FoodOrder.Core.Soups;
+using popIT.FoodOrder.Core.Students;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,6 +28,31 @@ namespace popIT.FoodOrder.Core.Orders
 
 		public async Task<OrderResponse> AddOrder(OrderAddRequest orderAddRequest)
 		{
+			if(await _unitOfWork.GetRepository<IStudentRepository>().GetStudentByTicket(orderAddRequest.StudentTicket) == null)
+			{
+				throw new StudentAuthorizationException(orderAddRequest.StudentTicket);
+			}
+			
+			if(await _unitOfWork.GetRepository<ISoupRepository>().GetSoupById(orderAddRequest.SoupId) == null)
+			{
+				throw new EntityIdNotFoundException(nameof(Soup), orderAddRequest.SoupId);
+			}
+			
+			if(await _unitOfWork.GetRepository<IMeatRepository>().GetMeatById(orderAddRequest.MeatId) == null)
+			{
+				throw new EntityIdNotFoundException(nameof(Meat), orderAddRequest.MeatId);
+			}
+			
+			if(await _unitOfWork.GetRepository<IGarnishRepository>().GetGarnishById(orderAddRequest.GarnishId) == null)
+			{
+				throw new EntityIdNotFoundException(nameof(Garnish), orderAddRequest.GarnishId);
+			}
+			
+			if(await _unitOfWork.GetRepository<IBeverageRepository>().GetBeverageById(orderAddRequest.BeverageId) == null)
+			{
+				throw new EntityIdNotFoundException(nameof(Beverage), orderAddRequest.BeverageId);
+			}
+
 			var order = _mapper.Map<Order>(orderAddRequest);
 			await _unitOfWork.GetRepository<IOrderRepository>().AddOrder(order);
 

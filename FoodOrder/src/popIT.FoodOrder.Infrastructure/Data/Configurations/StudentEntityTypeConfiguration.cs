@@ -9,7 +9,7 @@ namespace popIT.FoodOrder.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<Student> builder)
         {
             builder.ToTable("Students");
-            builder.HasKey(s => s.Id);
+            builder.HasKey(s => s.StudentTicket);
 
             builder.Property(s => s.Name)
                 .IsRequired();

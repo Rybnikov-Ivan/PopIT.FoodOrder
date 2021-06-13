@@ -62,7 +62,7 @@ namespace popIT.FoodOrder.Application.Controllers
 		{
 			var response = await _orderService.AddOrder(orderAddRequest);
 
-			return CreatedAtRoute(nameof(GetOrderById), new { Id = response.Id }, response);
+			return CreatedAtRoute(nameof(GetOrderById), new { response.Id }, response);
 		}
 	}
 }

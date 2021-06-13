@@ -87,46 +87,50 @@ namespace popIT.FoodOrder.Infrastructure.Data
 				);
 			}
 			
-			if(!context.Orders.Any())
-			{
-				context.Orders.AddRange(
-					new Order
-					{
-						BeverageId = context.Beverages.OrderBy(b => b.Name).First().Id,
-						GarnishId = context.Garnishes.OrderBy(b => b.Name).First().Id,
-						MeatId = context.Meats.OrderBy(b => b.Name).First().Id,
-						SoupId = context.Soups.OrderBy(b => b.Name).First().Id,
-						OrderTime = DateTime.Now,
-						IsСompleted = false
-					},
-					new Order
-					{
-						BeverageId = context.Beverages.OrderBy(b => b.Name).First().Id,
-						GarnishId = context.Garnishes.OrderBy(b => b.Name).Last().Id,
-						MeatId = context.Meats.OrderBy(b => b.Name).First().Id,
-						SoupId = context.Soups.OrderBy(b => b.Name).Last().Id,
-						OrderTime = DateTime.Now,
-						IsСompleted = true
-					},
-					new Order
-					{
-						BeverageId = context.Beverages.OrderBy(b => b.Name).Last().Id,
-						GarnishId = context.Garnishes.OrderBy(b => b.Name).Last().Id,
-						MeatId = context.Meats.OrderBy(b => b.Name).Last().Id,
-						SoupId = context.Soups.OrderBy(b => b.Name).Last().Id,
-						OrderTime = DateTime.Now.AddDays(-1),
-						IsСompleted = false
-					},
-					new Order
-					{
-						BeverageId = context.Beverages.OrderBy(b => b.Name).Last().Id,
-						GarnishId = context.Garnishes.OrderBy(b => b.Name).First().Id,
-						MeatId = context.Meats.OrderBy(b => b.Name).Last().Id,
-						SoupId = context.Soups.OrderBy(b => b.Name).First().Id,
-						OrderTime = DateTime.Now.AddDays(-1),
-						IsСompleted = true
-					});
-			}
+			//if(!context.Orders.Any())
+			//{
+			//	context.Orders.AddRange(
+			//		new Order
+			//		{
+			//			BeverageId = context.Beverages.OrderBy(b => b.Name).First().Id,
+			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).First().Id,
+			//			MeatId = context.Meats.OrderBy(b => b.Name).First().Id,
+			//			SoupId = context.Soups.OrderBy(b => b.Name).First().Id,
+			//			OrderTime = DateTime.Now,
+			//			IsСompleted = false,
+			//			StudentId = context.Students.OrderBy(b => b.Name).First().StudentTicket
+			//		},
+			//		new Order
+			//		{
+			//			BeverageId = context.Beverages.OrderBy(b => b.Name).First().Id,
+			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).Last().Id,
+			//			MeatId = context.Meats.OrderBy(b => b.Name).First().Id,
+			//			SoupId = context.Soups.OrderBy(b => b.Name).Last().Id,
+			//			OrderTime = DateTime.Now,
+			//			IsСompleted = true,
+			//			StudentId = context.Students.OrderBy(b => b.Name).Last().StudentTicket
+			//		},
+			//		new Order
+			//		{
+			//			BeverageId = context.Beverages.OrderBy(b => b.Name).Last().Id,
+			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).Last().Id,
+			//			MeatId = context.Meats.OrderBy(b => b.Name).Last().Id,
+			//			SoupId = context.Soups.OrderBy(b => b.Name).Last().Id,
+			//			OrderTime = DateTime.Now.AddDays(-1),
+			//			IsСompleted = false,
+			//			StudentId = context.Students.OrderBy(b => b.Name).First().StudentTicket
+			//		},
+			//		new Order
+			//		{
+			//			BeverageId = context.Beverages.OrderBy(b => b.Name).Last().Id,
+			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).First().Id,
+			//			MeatId = context.Meats.OrderBy(b => b.Name).Last().Id,
+			//			SoupId = context.Soups.OrderBy(b => b.Name).First().Id,
+			//			OrderTime = DateTime.Now.AddDays(-1),
+			//			IsСompleted = true,
+			//			StudentId = context.Students.OrderBy(b => b.Name).Last().StudentTicket
+			//		});
+			//}
 
 			context.SaveChanges();
 		}

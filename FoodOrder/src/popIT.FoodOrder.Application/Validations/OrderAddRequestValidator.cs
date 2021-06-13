@@ -3,6 +3,7 @@ using popIT.FoodOrder.Core.Orders.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace popIT.FoodOrder.Application.Validations
@@ -20,12 +21,16 @@ namespace popIT.FoodOrder.Application.Validations
 				.WithMessage("Идентификатор должен быть больше либо равен 0.");
 
 			RuleFor(o => o.MeatId)
-							.GreaterThanOrEqualTo(0)
-							.WithMessage("Идентификатор должен быть больше либо равен 0.");
+				.GreaterThanOrEqualTo(0)
+				.WithMessage("Идентификатор должен быть больше либо равен 0.");
 
 			RuleFor(o => o.SoupId)
-							.GreaterThanOrEqualTo(0)
-							.WithMessage("Идентификатор должен быть больше либо равен 0.");
+				.GreaterThanOrEqualTo(0)
+				.WithMessage("Идентификатор должен быть больше либо равен 0.");
+
+			RuleFor(o => o.StudentTicket)
+				.Matches(new Regex(@"^\d{4}-\d+$"))
+				.WithMessage("Некорректный формат студенческого билета.");
 		}
 	}
 }

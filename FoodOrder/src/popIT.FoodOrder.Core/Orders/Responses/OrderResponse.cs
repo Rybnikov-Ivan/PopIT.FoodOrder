@@ -9,6 +9,7 @@ namespace popIT.FoodOrder.Core.Orders.Responses
 	public class OrderResponse
 	{
 		public int Id { get; set; }
+		public string StudentTicket { get; set; }
 		public DateTime OrderTime { get; set; }
 		public BeverageResponse Beverage { get; set; }
 		public GarnishResponse Garnish { get; set; }

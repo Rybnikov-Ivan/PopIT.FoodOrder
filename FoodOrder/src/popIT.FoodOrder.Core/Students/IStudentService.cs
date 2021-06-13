@@ -5,6 +5,6 @@ namespace popIT.FoodOrder.Core.Students
 {
     public interface IStudentService
     {
-        Task<StudentResponse> GetStudentById(int id);
-    }
+        Task<StudentResponse> GetStudentByTicket(string studentTicket);
+	}
 }

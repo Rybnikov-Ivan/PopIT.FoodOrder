@@ -1,11 +1,11 @@
-﻿namespace popIT.FoodOrder.Core.Students.Responses
+﻿using System.Collections.Generic;
+
+namespace popIT.FoodOrder.Core.Students.Responses
 {
     public class StudentResponse
     {
-        public int Id { get; set; }
-        
-        public string Name { get; set; }
-
         public string StudentTicket { get; set; }
+        public string Name { get; set; }
+        public IEnumerable<int> Orders { get; set; }
     }
 }

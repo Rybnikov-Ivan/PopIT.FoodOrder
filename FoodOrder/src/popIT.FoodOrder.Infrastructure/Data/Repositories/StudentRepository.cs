@@ -1,20 +1,21 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using popIT.FoodOrder.Core.Students;
 
 namespace popIT.FoodOrder.Infrastructure.Data.Repositories
 {
     public class StudentRepository : IStudentRepository
     {
-        private readonly IGenericRepository<Student> _genericRepository;
+        private readonly DbSet<Student> _dbSet;
+		public StudentRepository(FoodOrderDbContext context)
+		{
+			_dbSet = context.Set<Student>();
+		}
 
-        public StudentRepository(IGenericRepository<Student> genericRepository)
-        {
-            _genericRepository = genericRepository;
-        }
-        
-        public async Task<Student> GetStudentById(int id)
-        {
-            return await _genericRepository.GetById(id);
-        }
-    }
+		public Task<Student> GetStudentByTicket(string studentTicket)
+		{
+			return _dbSet.Include(s => s.Orders)
+				.FirstOrDefaultAsync(s => s.StudentTicket == studentTicket);
+		}
+	}
 }

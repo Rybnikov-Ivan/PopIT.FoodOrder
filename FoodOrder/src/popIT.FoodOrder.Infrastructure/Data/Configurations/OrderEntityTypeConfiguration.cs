@@ -29,6 +29,10 @@ namespace popIT.FoodOrder.Infrastructure.Data.Configurations
 			builder.HasOne(o => o.Soup)
 				.WithMany(s => s.Orders)
 				.HasForeignKey(o => o.SoupId);
+
+			builder.HasOne(o => o.Student)
+				.WithMany(s => s.Orders)
+				.HasForeignKey(o => o.StudentTicket);
 		}
 	}
 }

@@ -3,6 +3,7 @@ using popIT.FoodOrder.Core.Garnishes;
 using popIT.FoodOrder.Core.General;
 using popIT.FoodOrder.Core.Meats;
 using popIT.FoodOrder.Core.Soups;
+using popIT.FoodOrder.Core.Students;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,5 +26,8 @@ namespace popIT.FoodOrder.Core.Orders
 
 		public int SoupId { get; set; }
 		public Soup Soup { get; set; }
+
+		public string StudentTicket { get; set; }
+		public Student Student { get; set; }
 	}
 }
