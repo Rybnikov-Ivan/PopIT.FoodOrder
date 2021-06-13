@@ -43,6 +43,7 @@ namespace popIT.FoodOrder.Core.Beverages
 			var beverage = _mapper.Map<Beverage>(beverageAddRequest);
 
 			await _unitOfWork.GetRepository<IBeverageRepository>().AddBeverage(beverage);
+			await _unitOfWork.SaveChangesAsync();
 			
 			return _mapper.Map<BeverageResponse>(beverage);
 		}
@@ -59,6 +60,7 @@ namespace popIT.FoodOrder.Core.Beverages
 			_mapper.Map(beverageUpdateRequest, beverage);
 
 			await _unitOfWork.GetRepository<IBeverageRepository>().UpdateBeverage(beverage);
+			await _unitOfWork.SaveChangesAsync();
 		}
 
 		public async Task DeleteBeverage(int id)
@@ -71,6 +73,7 @@ namespace popIT.FoodOrder.Core.Beverages
 			}
 
 			await _unitOfWork.GetRepository<IBeverageRepository>().DeleteBeverage(beverage);
+			await _unitOfWork.SaveChangesAsync();
 		}
 	}
 }

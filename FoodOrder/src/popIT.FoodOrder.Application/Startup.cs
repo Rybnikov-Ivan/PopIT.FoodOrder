@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using popIT.FoodOrder.Application.Extensions;
+using popIT.FoodOrder.Application.Validations;
 using popIT.FoodOrder.Core.Beverages.Mappings;
 using popIT.FoodOrder.Core.General;
 using popIT.FoodOrder.Infrastructure.Data;
@@ -25,11 +27,24 @@ namespace popIT.FoodOrder.Application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers()
-                .AddNewtonsoftJson(opt =>
-                {
-                    opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                });
+
+			services.AddControllers(opt =>
+                    {
+                        opt.Filters.Add(typeof(ValidationActionFilter));
+                    })
+                    .ConfigureApiBehaviorOptions(opt =>
+                    {
+                        opt.SuppressModelStateInvalidFilter = true;
+                    })
+                    .AddFluentValidation(fv =>
+                    {
+                        fv.RegisterValidatorsFromAssemblyContaining<SoupAddRequestValidator>();
+                    })
+                    .AddNewtonsoftJson(opt =>
+                    {
+                        opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                    });
+
 
             services.AddAutoMapper(typeof(BeverageProfile));
 

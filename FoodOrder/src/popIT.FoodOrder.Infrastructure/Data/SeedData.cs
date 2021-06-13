@@ -6,6 +6,8 @@ using popIT.FoodOrder.Core.Meats;
 using popIT.FoodOrder.Core.Soups;
 using System;
 using System.Linq;
+using popIT.FoodOrder.Core.Students;
+using popIT.FoodOrder.Core.Orders;
 
 namespace popIT.FoodOrder.Infrastructure.Data
 {
@@ -58,6 +60,77 @@ namespace popIT.FoodOrder.Infrastructure.Data
 					new Garnish { Name = "Пюре" }
 					);
 			}
+
+			if(!context.Students.Any())
+			{
+				context.Students.AddRange(
+					new Student()
+					{
+						Name = "Кирилл",
+						StudentTicket = "2020-65156"
+					},
+					new Student
+					{
+						Name = "Александр",
+						StudentTicket = "2020-23166"
+					},
+					new Student
+					{
+						Name = "Алексей",
+						StudentTicket = "2020-98452"
+					},
+					new Student
+					{
+						Name = "Иван",
+						StudentTicket = "2020-12225"
+					}
+				);
+			}
+			
+			//if(!context.Orders.Any())
+			//{
+			//	context.Orders.AddRange(
+			//		new Order
+			//		{
+			//			BeverageId = context.Beverages.OrderBy(b => b.Name).First().Id,
+			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).First().Id,
+			//			MeatId = context.Meats.OrderBy(b => b.Name).First().Id,
+			//			SoupId = context.Soups.OrderBy(b => b.Name).First().Id,
+			//			OrderTime = DateTime.Now,
+			//			IsСompleted = false,
+			//			StudentId = context.Students.OrderBy(b => b.Name).First().StudentTicket
+			//		},
+			//		new Order
+			//		{
+			//			BeverageId = context.Beverages.OrderBy(b => b.Name).First().Id,
+			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).Last().Id,
+			//			MeatId = context.Meats.OrderBy(b => b.Name).First().Id,
+			//			SoupId = context.Soups.OrderBy(b => b.Name).Last().Id,
+			//			OrderTime = DateTime.Now,
+			//			IsСompleted = true,
+			//			StudentId = context.Students.OrderBy(b => b.Name).Last().StudentTicket
+			//		},
+			//		new Order
+			//		{
+			//			BeverageId = context.Beverages.OrderBy(b => b.Name).Last().Id,
+			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).Last().Id,
+			//			MeatId = context.Meats.OrderBy(b => b.Name).Last().Id,
+			//			SoupId = context.Soups.OrderBy(b => b.Name).Last().Id,
+			//			OrderTime = DateTime.Now.AddDays(-1),
+			//			IsСompleted = false,
+			//			StudentId = context.Students.OrderBy(b => b.Name).First().StudentTicket
+			//		},
+			//		new Order
+			//		{
+			//			BeverageId = context.Beverages.OrderBy(b => b.Name).Last().Id,
+			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).First().Id,
+			//			MeatId = context.Meats.OrderBy(b => b.Name).Last().Id,
+			//			SoupId = context.Soups.OrderBy(b => b.Name).First().Id,
+			//			OrderTime = DateTime.Now.AddDays(-1),
+			//			IsСompleted = true,
+			//			StudentId = context.Students.OrderBy(b => b.Name).Last().StudentTicket
+			//		});
+			//}
 
 			context.SaveChanges();
 		}

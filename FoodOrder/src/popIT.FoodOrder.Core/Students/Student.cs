@@ -2,10 +2,11 @@
 using popIT.FoodOrder.Core.Orders;
 using System.Collections.Generic;
 
-namespace popIT.FoodOrder.Core.Garnishes
+namespace popIT.FoodOrder.Core.Students
 {
-    public class Garnish : BaseEntity
+    public class Student
     {
+        public string StudentTicket { get; set; }
         public string Name { get; set; }
 
 		public IEnumerable<Order> Orders { get; set; }
