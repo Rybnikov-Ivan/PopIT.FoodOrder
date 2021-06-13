@@ -1,0 +1,18 @@
+::ng-deep #grid {
+  min-height: 700px;
+}
+
+::ng-deep #grid-container {
+  padding-top: 45px;
+}
+::ng-deep #gridSubmitSelected {
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+  margin: 1px;
+  top: 10px;
+}
+
+::ng-deep #gridSubmitSelected .dx-button-text {
+  line-height: 0;
+}

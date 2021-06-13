@@ -1,0 +1,30 @@
+<div id="grid">
+  <dx-button id="gridSubmitSelected"
+        text="Отправить"
+        [height]="34"
+        (onClick)="onSubmit()">
+    </dx-button>
+  <dx-data-grid
+      id="grid-container"
+      [dataSource]="dataSours"
+      keyExpr="Id"
+      [showBorders]="true">
+      <dxo-selection
+          [selectAllMode]="allMode"
+          [showCheckBoxesMode]="checkBoxesMode"
+          mode="multiple"
+      ></dxo-selection>
+      <dxo-scrolling></dxo-scrolling>
+      <dxo-filter-row
+          [visible]="true"
+      ></dxo-filter-row>
+      <dxi-column dataField="Id"></dxi-column>
+      <dxi-column dataField="Name"></dxi-column>
+      <dxi-column dataField="Code"></dxi-column>
+      <dxi-column dataField="Soup"></dxi-column>
+      <dxi-column dataField="Garnish"></dxi-column>
+      <dxi-column dataField="Meat"></dxi-column>
+      <dxi-column dataField="Beverage"></dxi-column>
+      <dxi-column dataField="Date"></dxi-column>
+  </dx-data-grid>
+</div>

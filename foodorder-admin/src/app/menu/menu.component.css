@@ -1,65 +1,66 @@
-::ng-deep #grid {
-  height: 440px;
+/* The navigation menu */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
 }
 
-::ng-deep .options {
-  padding: 20px;
-  margin-top: 20px;
-  background-color: rgba(191, 191, 191, 0.15);
-}
-
-::ng-deep .caption {
-  margin-bottom: 10px;
-font-weight: 500;
-font-size: 18px;
-}
-
-::ng-deep .option {
-  margin-bottom: 10px;
-}
-
-::ng-deep .option > span {
-  position: relative;
-  top: 2px;
-  margin-right: 10px;
-}
-
-::ng-deep .option > .dx-widget {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-::ng-deep #requests .caption {
+/* Navigation links */
+.navbar a {
   float: left;
-  padding-top: 7px;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-::ng-deep #requests > div {
-  padding-bottom: 5px;
+/* The subnavigation menu */
+.subnav {
+  float: left;
+  overflow: hidden;
 }
 
-::ng-deep #requests > div:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-::ng-deep #requests #clear {
-  float: right;
-}
-
-::ng-deep #requests ul {
-  list-style: none;
-  max-height: 100px;
-  overflow: auto;
+/* Subnav button */
+.subnav .subnavbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
   margin: 0;
 }
 
-::ng-deep #requests ul li {
-  padding: 7px 0;
-  border-bottom: 1px solid #dddddd;
+/* Add a red background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: rgb(10, 13, 151);
 }
 
-::ng-deep #requests ul li:last-child {
-  border-bottom: none;
+/* Style the subnav content - positioned absolute */
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: rgb(10, 13, 151);
+  width: 100%;
+  z-index: 1;
+}
+
+/* Style the subnav links */
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+/* Add a grey background color on hover */
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content {
+  display: block;
 }

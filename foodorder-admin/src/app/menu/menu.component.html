@@ -1,19 +1,22 @@
-<div>
-  <dx-button
-  text = "Супы"
-  routerLink="soup">
-  </dx-button>
-
-  <dx-button
-    text = "Гарниры">
-  </dx-button>
-
-  <dx-button
-    text = "Мясо">
-  </dx-button>
-
-  <dx-button
-    text = "Напитки">
-  </dx-button>
+<!-- The navigation menu -->
+<div class="navbar">
+  <div class="subnav">
+    <button class="subnavbtn">Меню <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a routerLink='soup'>Супы</a>
+      <a routerLink='garnish'>Гарниры</a>
+      <a routerLink='meat'>Мясо</a>
+      <a routerLink='beverage'>Напитки</a>
+    </div>
+  </div>
+  <div class="subnav">
+    <button class="subnavbtn">Заказы <i class="fa fa-caret-down"></i></button>
+    <div class="subnav-content">
+      <a routerLink='active'>Активные</a>
+      <a routerLink='iscompleted'>Выполненные</a>
+    </div>
+  </div>
+  <a href="#contact">Контакты</a>
 </div>
+
 
