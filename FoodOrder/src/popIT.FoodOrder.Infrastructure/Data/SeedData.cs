@@ -7,6 +7,7 @@ using popIT.FoodOrder.Core.Soups;
 using System;
 using System.Linq;
 using popIT.FoodOrder.Core.Students;
+using popIT.FoodOrder.Core.Orders;
 
 namespace popIT.FoodOrder.Infrastructure.Data
 {
@@ -59,7 +60,7 @@ namespace popIT.FoodOrder.Infrastructure.Data
 					new Garnish { Name = "Пюре" }
 					);
 			}
-			
+
 			if(!context.Students.Any())
 			{
 				context.Students.AddRange(
@@ -84,6 +85,47 @@ namespace popIT.FoodOrder.Infrastructure.Data
 						StudentTicket = "2020-12225"
 					}
 				);
+			}
+			
+			if(!context.Orders.Any())
+			{
+				context.Orders.AddRange(
+					new Order
+					{
+						BeverageId = context.Beverages.OrderBy(b => b.Name).First().Id,
+						GarnishId = context.Garnishes.OrderBy(b => b.Name).First().Id,
+						MeatId = context.Meats.OrderBy(b => b.Name).First().Id,
+						SoupId = context.Soups.OrderBy(b => b.Name).First().Id,
+						OrderTime = DateTime.Now,
+						IsСompleted = false
+					},
+					new Order
+					{
+						BeverageId = context.Beverages.OrderBy(b => b.Name).First().Id,
+						GarnishId = context.Garnishes.OrderBy(b => b.Name).Last().Id,
+						MeatId = context.Meats.OrderBy(b => b.Name).First().Id,
+						SoupId = context.Soups.OrderBy(b => b.Name).Last().Id,
+						OrderTime = DateTime.Now,
+						IsСompleted = true
+					},
+					new Order
+					{
+						BeverageId = context.Beverages.OrderBy(b => b.Name).Last().Id,
+						GarnishId = context.Garnishes.OrderBy(b => b.Name).Last().Id,
+						MeatId = context.Meats.OrderBy(b => b.Name).Last().Id,
+						SoupId = context.Soups.OrderBy(b => b.Name).Last().Id,
+						OrderTime = DateTime.Now.AddDays(-1),
+						IsСompleted = false
+					},
+					new Order
+					{
+						BeverageId = context.Beverages.OrderBy(b => b.Name).Last().Id,
+						GarnishId = context.Garnishes.OrderBy(b => b.Name).First().Id,
+						MeatId = context.Meats.OrderBy(b => b.Name).Last().Id,
+						SoupId = context.Soups.OrderBy(b => b.Name).First().Id,
+						OrderTime = DateTime.Now.AddDays(-1),
+						IsСompleted = true
+					});
 			}
 
 			context.SaveChanges();

@@ -2,6 +2,7 @@
 using popIT.FoodOrder.Core.Beverages;
 using popIT.FoodOrder.Core.Garnishes;
 using popIT.FoodOrder.Core.Meats;
+using popIT.FoodOrder.Core.Orders;
 using popIT.FoodOrder.Core.Soups;
 using popIT.FoodOrder.Core.Students;
 using popIT.FoodOrder.Infrastructure.Data.Repositories;
@@ -18,6 +19,7 @@ namespace popIT.FoodOrder.Application.Extensions
             services.AddScoped<IMeatRepository, MeatRepository>();
             services.AddScoped<ISoupRepository, SoupRepository>();
             services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
 
             return services;
         }

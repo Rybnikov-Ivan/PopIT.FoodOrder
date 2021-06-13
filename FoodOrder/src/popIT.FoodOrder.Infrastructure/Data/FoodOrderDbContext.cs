@@ -5,6 +5,7 @@ using popIT.FoodOrder.Core.Garnishes;
 using popIT.FoodOrder.Core.Beverages;
 using popIT.FoodOrder.Core.Students;
 using popIT.FoodOrder.Infrastructure.Data.Configurations;
+using popIT.FoodOrder.Core.Orders;
 
 namespace popIT.FoodOrder.Infrastructure.Data
 {
@@ -16,7 +17,7 @@ namespace popIT.FoodOrder.Infrastructure.Data
 		public DbSet<Soup> Soups { get; set; }
 		public DbSet<Garnish> Garnishes { get; set; }
 		public DbSet<Beverage> Beverages { get; set; }
-		
+		public DbSet<Order> Orders { get; set; }
 		public DbSet<Student> Students { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
