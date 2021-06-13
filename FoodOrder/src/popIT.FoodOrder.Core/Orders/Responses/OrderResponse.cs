@@ -11,6 +11,7 @@ namespace popIT.FoodOrder.Core.Orders.Responses
 		public int Id { get; set; }
 		public string StudentTicket { get; set; }
 		public DateTime OrderTime { get; set; }
+		public string TotalPrice { get; set; }
 		public BeverageResponse Beverage { get; set; }
 		public GarnishResponse Garnish { get; set; }
 		public MeatResponse Meat { get; set; }

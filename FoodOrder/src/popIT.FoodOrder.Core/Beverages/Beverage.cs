@@ -7,6 +7,7 @@ namespace popIT.FoodOrder.Core.Beverages
     public class Beverage : BaseEntity
     {
         public string Name { get; set; }
+		public int Price { get; set; }
 
 		public IEnumerable<Order> Orders { get; set; }
 	}

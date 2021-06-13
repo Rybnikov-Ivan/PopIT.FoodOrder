@@ -3,5 +3,6 @@
     public class GarnishAddRequest
     {
         public string Name { get; set; }
-    }
+		public int Price { get; set; }
+	}
 }

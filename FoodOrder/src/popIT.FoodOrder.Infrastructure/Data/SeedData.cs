@@ -24,40 +24,40 @@ namespace popIT.FoodOrder.Infrastructure.Data
 			if(!context.Beverages.Any())
 			{
 				context.Beverages.AddRange(
-					new Beverage { Name = "Компот" },
-					new Beverage { Name = "Чай" },
-					new Beverage { Name = "Сок" },
-					new Beverage { Name = "Кофе" }
+					new Beverage { Name = "Компот", Price = 43 },
+					new Beverage { Name = "Чай", Price = 37 },
+					new Beverage { Name = "Сок", Price = 68 },
+					new Beverage { Name = "Кофе", Price = 43 }
 					);
 			}
 
 			if(!context.Meats.Any())
 			{
 				context.Meats.AddRange(
-					new Meat { Name = "Котлета по-домашнему" },
-					new Meat { Name = "Курица" },
-					new Meat { Name = "Купаты" },
-					new Meat { Name = "Шашлык" }
+					new Meat { Name = "Котлета по-домашнему", Price = 25 },
+					new Meat { Name = "Курица", Price = 62 },
+					new Meat { Name = "Купаты", Price = 98 },
+					new Meat { Name = "Шашлык", Price = 100 }
 					);
 			}
 
 			if(!context.Soups.Any())
 			{
 				context.Soups.AddRange(
-					new Soup { Name = "Борщ" },
-					new Soup { Name = "Гороховый суп" },
-					new Soup { Name = "Солянка" },
-					new Soup { Name = "Щи" }
+					new Soup { Name = "Борщ", Price = 50 },
+					new Soup { Name = "Гороховый суп", Price = 8 },
+					new Soup { Name = "Солянка", Price = 13 },
+					new Soup { Name = "Щи", Price = 43 }
 					);
 			}
 
 			if(!context.Garnishes.Any())
 			{
 				context.Garnishes.AddRange(
-					new Garnish { Name = "Гречка" },
-					new Garnish { Name = "Макароны" },
-					new Garnish { Name = "Рис" },
-					new Garnish { Name = "Пюре" }
+					new Garnish { Name = "Гречка", Price = 10 },
+					new Garnish { Name = "Макароны", Price = 5 },
+					new Garnish { Name = "Рис", Price = 30 },
+					new Garnish { Name = "Пюре", Price = 12 }
 					);
 			}
 
@@ -87,51 +87,6 @@ namespace popIT.FoodOrder.Infrastructure.Data
 				);
 			}
 			
-			//if(!context.Orders.Any())
-			//{
-			//	context.Orders.AddRange(
-			//		new Order
-			//		{
-			//			BeverageId = context.Beverages.OrderBy(b => b.Name).First().Id,
-			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).First().Id,
-			//			MeatId = context.Meats.OrderBy(b => b.Name).First().Id,
-			//			SoupId = context.Soups.OrderBy(b => b.Name).First().Id,
-			//			OrderTime = DateTime.Now,
-			//			IsСompleted = false,
-			//			StudentId = context.Students.OrderBy(b => b.Name).First().StudentTicket
-			//		},
-			//		new Order
-			//		{
-			//			BeverageId = context.Beverages.OrderBy(b => b.Name).First().Id,
-			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).Last().Id,
-			//			MeatId = context.Meats.OrderBy(b => b.Name).First().Id,
-			//			SoupId = context.Soups.OrderBy(b => b.Name).Last().Id,
-			//			OrderTime = DateTime.Now,
-			//			IsСompleted = true,
-			//			StudentId = context.Students.OrderBy(b => b.Name).Last().StudentTicket
-			//		},
-			//		new Order
-			//		{
-			//			BeverageId = context.Beverages.OrderBy(b => b.Name).Last().Id,
-			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).Last().Id,
-			//			MeatId = context.Meats.OrderBy(b => b.Name).Last().Id,
-			//			SoupId = context.Soups.OrderBy(b => b.Name).Last().Id,
-			//			OrderTime = DateTime.Now.AddDays(-1),
-			//			IsСompleted = false,
-			//			StudentId = context.Students.OrderBy(b => b.Name).First().StudentTicket
-			//		},
-			//		new Order
-			//		{
-			//			BeverageId = context.Beverages.OrderBy(b => b.Name).Last().Id,
-			//			GarnishId = context.Garnishes.OrderBy(b => b.Name).First().Id,
-			//			MeatId = context.Meats.OrderBy(b => b.Name).Last().Id,
-			//			SoupId = context.Soups.OrderBy(b => b.Name).First().Id,
-			//			OrderTime = DateTime.Now.AddDays(-1),
-			//			IsСompleted = true,
-			//			StudentId = context.Students.OrderBy(b => b.Name).Last().StudentTicket
-			//		});
-			//}
-
 			context.SaveChanges();
 		}
 	}
